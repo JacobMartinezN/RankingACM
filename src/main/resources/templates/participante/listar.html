@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class = " row card-header">
+		
+			<div class="col-1">
+				<div class="font-weight-bold" th:text="${titulo}"></div>
+			</div>
+			
+			<div class="col-11">
+				<img src="https://vignette.wikia.nocookie.net/es.pokemon/images/7/74/Charizard_XY.gif/revision/latest?cb=20140807015236" alt="Charizard XY" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Charizard_XY.gif" data-image-name="Charizard XY.gif" data-src="https://vignette.wikia.nocookie.net/es.pokemon/images/7/74/Charizard_XY.gif/revision/latest?cb=20140807015236" width="50" height="50" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
+			</div>
+			
+		</div>
+		
+		<div class ="container"> 
+		<div class="card-body">
+		
+			<table class="table table-striped table-dark">
+			  <thead>
+			    <tr>
+			      <th scope="col">Id</th>
+			      <th scope="col">TIU</th>
+			      <th scope="col">Nombre</th>
+			      <th scope="col">Sede</th>
+			      <th scope="col">Puntos Totales</th>
+			      <th scope="col">Registrar Puntaje</th>
+		
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="participante : ${participantes}">
+			      <td th:text ="${participante.id}"></td>
+			      <td th:text ="${participante.tiu}"></td>
+			      <td th:text ="${participante.nombre}"></td>
+			      <td th:text ="${participante.sede}"></td>
+			      <td th:text ="${participante.puntosTotales}"></td>
+			      <td><a class="btn btn-success" th:href="@{/resultado/crear/} + ${participante.id}">Registrar Resultados</a></td>
+			      
+			  </tbody>
+			</table>
+			
+			<a class="btn btn-warning" th:href="@{/participante/crear}" role="button">Agregar Participante</a>
+		
+		</div>
+	
+	</div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="htpp://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<div class = " row card-header">
+		
+			<div class="col-1">
+				<div class="font-weight-bold" th:text="${titulo}"></div>
+			</div>
+			
+			<div class="col-11">
+				<img src="https://vignette.wikia.nocookie.net/es.pokemon/images/7/74/Charizard_XY.gif/revision/latest?cb=20140807015236" alt="Charizard XY" class="lzyPlcHld lzyTrns lzyLoaded" data-image-key="Charizard_XY.gif" data-image-name="Charizard XY.gif" data-src="https://vignette.wikia.nocookie.net/es.pokemon/images/7/74/Charizard_XY.gif/revision/latest?cb=20140807015236" width="50" height="50" onload="if(typeof ImgLzy==='object'){ImgLzy.load(this)}">
+			</div>
+			
+		</div>
+		
+	<div class ="container"> 
+		<div class="card-body">
+		
+			<div class="card border-warning mb-3">
+						<div class="card-body text-warning">
+							<div class="form-group">
+						    	<label for="exampleInputPassword1">Praticipante</label>
+						    	<input th:value="${resultado.participante.nombre}" type="text" class="form-control" disabled='disabled'>
+						 	</div>
+						</div>
+					</div>
+		
+			<form th:action="@{/resultado/crear}" th:object="${resultado}" method="post">
+				  <div class="form-group">
+				    <label for="formGroupExampleInput">Puesto</label>
+				    <input th:field="*{puesto}" type="text" class="form-control" id="" placeholder="Ingresar Puesto">
+				  </div>
+				  
+				  <div class="form-group">
+				      <label for="inputPassword4">Fecha</label>
+				      <input type="date" th:field="*{fecha}" class="form-control" placeholder="Fecha" >
+				    </div>
+				  
+				  
+				  <button type="submit" class="btn btn-primary">Agregar</button>
+				</form>
+		
+		</div>
+	</div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
